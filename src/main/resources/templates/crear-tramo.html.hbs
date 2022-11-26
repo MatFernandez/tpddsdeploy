@@ -1,0 +1,48 @@
+{{#partial "form" }}
+  <div class="div-form">
+    <form method=POST action="/registra_tramo">
+      <h1>Crear tramo</h1>
+      <fieldset>
+        <legend>
+          <h3>Personal Details</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+            <div><label>Localidad inicial*</label><input type="text" name="localidad1" required>
+            </div>
+            <div><label>Calle</label><input type="text" name="calle1"></div>
+            <div><label>Altura</label><input type="text" name="altura1"></div>
+            <div><label>Localidad Fin*</label><input type="text" name="localidad2" required></div>
+            <div><label>Calle</label><input type="text" name="calle2"></div>
+            <div><label>Altura</label><input type="text" name="altura2"></div>
+
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </fieldset>
+      <button type="submit" href="/">Submit</button>
+
+      <fieldset>
+        <legend>
+          <h3>Tramos creados</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+            {{#each tramos}}
+              <p>Inicio: {{inicio.localidad }} | Fin: {{fin.localidad}}</p>
+            {{/each}}
+          </div>
+        </div>
+      </fieldset>
+      </form>
+  </div>
+
+
+
+
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}

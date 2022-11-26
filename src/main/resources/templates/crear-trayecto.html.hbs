@@ -1,0 +1,61 @@
+{{#partial "form" }}
+  <div class="div-form">
+    <form method=POST action="/trayecto">
+      <h1>Crear trayecto</h1>
+      <fieldset>
+
+
+          <fieldset>
+            <legend>
+              <h3>Datos del trayecto</h3>
+            </legend>
+            <div class="personal-details">
+
+
+                <div>
+                  <label for="nombreTrayecto">Nombre trayecto</label>
+                  <input type="text" id="nombreTrayecto" name="nombreTrayecto" placeholder="Ingresa un nombre.." required ><br><br>
+                </div>
+
+                <div>
+                  <label>Selecciona tramos*</label>
+                  <select name="tramos" required multiple>
+                    <option value=""></option>
+                    {{#each tramosDisponibles}}
+                      <option value="{{id}}">Inicio: {{inicio.localidad }} | Fin: {{fin.localidad}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+
+
+                <button type="submit">Crear</button>
+
+            </div>
+          </fieldset>
+
+      <fieldset>
+        <legend>
+          <h3>Trayectos creados</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+
+            {{#each trayectos}}
+              <h4>Trayecto {{nombreTrayecto}}: </h4>
+              {{#each tramos}}
+                 <li> Inicio: {{inicio.localidad}} - Fin: {{fin.localidad}}</li>
+              {{/each}}
+            {{/each}}
+          </div>
+        </div>
+      </fieldset>
+      </form>
+  </div>
+
+
+
+
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}

@@ -1,0 +1,46 @@
+{{#partial "form" }}
+  <div class="div-form">
+    <form method=POST action="/crear_solicitud">
+      <fieldset>
+        <legend>
+          <h3>Vincularme a una organización</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+            </div>
+            <div>
+
+              <label>Organizaciones*</label>
+              <select name="idOrganizacion" required>
+              {{#each organizaciones}}
+                <option value=""></option>
+                <option value="{{id}}">{{razonSocial}}</option>
+              {{/each}}
+              </select>
+            </div>
+          </div>
+          <div>
+
+          </div>
+      </fieldset>
+      <button type="submit" href="/">Enviar solicitud</button>
+
+      <fieldset>
+        <legend>
+          <h3>Solicitudes generadas</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+            {{#each solicitudes}}
+              <p>Id: {{id}} | Aprobada: {{solicitudAprobada}} | Organizacion: {{organizacion.razonSocial}} </p>
+            {{/each}}
+          </div>
+        </div>
+      </fieldset>
+      </form>
+  </div>
+
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}

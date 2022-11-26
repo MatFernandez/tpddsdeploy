@@ -1,0 +1,35 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/perfil.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="menu">
+  <p class="usuario" id="usuario">{{nombre}} {{apellido}}</p>
+  <nav>
+    <ul>
+      {{#if adminRol }}
+        <li><a class="nav-perfil" href="/dato_actividad">Carga tus datos de actividad</a></li>
+        <li><a class="nav-perfil" href="/solicitudes_pendientes">Vinculaciones pendientes</a></li>
+        <li><a class="nav-perfil" href="/gestor_reportes">Gestor de reportes</a></li>
+        <li><a class="nav-perfil" href="/periodos">Calcular HC</a></li>
+        <li><a class="nav-perfil" href="/recomendaciones">Recomendaciones</a></li>
+      {{/if}}
+      {{#if miembro }}
+        <li><a class="nav-perfil" href="/trayecto">Carga un trayecto</a></li>
+        <li><a class="nav-perfil" href="/tramos">Carga un tramo</a></li>
+        <li><a class="nav-perfil" href="/crear_solicitud">Vincularme</a></li>
+      {{/if}}
+    </ul>
+  </nav>
+
+  <form style="margin-top: 2%" action="/cerrar_sesion" method="POST">
+    <button name="cerrarSesion" class="btn-cerrar-sesion" type="submit">Cerrar Sesión</button>
+  </form>
+
+</div>
+<main>
+  {{#block "contenido"}}
+  {{/block}}
+</main>
+</html>

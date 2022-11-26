@@ -1,0 +1,77 @@
+{{#partial "form" }}
+    <div class="div-form">
+    <form method=POST action="/calcular_hc">
+        <h1>Calculá la huella de carbono tu organización</h1>
+        <fieldset>
+            <legend>
+                <h3>Ingresá un periodo para los datos de actividad y factores de emisión:</h3>
+            </legend>
+            <div>
+                <label for="periodo">Periodo:</label>
+                <input type="text" placeholder="Periodo en formato MM/AAAA" id="periodo" name="periodo"><br><br>
+            </div>
+
+            <ul>
+                <li>Si queres buscar de un mes en particular, ingresa la fecha en formato <em>MM/AAAA</em> </li>
+                <li>En cambio, si deseas buscar por año, completa el mes con 00   -   <em>Ejemplo: 00/2015</em> </li>
+            </ul>
+
+            <button type="submit">Buscar periodo y calcular huella de carbono</button>
+        </fieldset>
+
+
+
+                <fieldset>
+                    <legend>
+                        <h3>Los datos de actividad del periodo seleccionado fueron:</h3>
+                    </legend>
+                    <div class="personal-details">
+                        <div>
+                            {{#each datosActividad}}
+                                <p>Tipo consumo: {{tipoConsumo.tipo}} | Valor: {{valor}} | Periocidad: {{periodicidad}} |
+                                    Periodo imputacion: {{periodoImputacion}}</p>
+                            {{/each}}
+
+                        </div>
+                    </div>
+                </fieldset>
+                    <fieldset>
+                        <legend>
+                            <h3>Los factores de emision fueron los siguientes:</h3>
+                        </legend>
+                        <div class="personal-details">
+                            <div>
+                                {{#each factoresEmision}}
+                                <p>Actividad primaria: {{actividadPrimaria}} | Unidad: {{unidadFactorEmision}} | Valor: {{valor}} |
+                                    Magnitud: {{magnitud}}</p>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </fieldset>
+                        <fieldset>
+                            <legend>
+                                <h3>Huella de carbono:</h3>
+                             </legend>
+                            <div class="personal-details">
+                            <p>La huella de carbono de los datos cargados de la organizacion fue de: {{huellaDatos}} {{magnitudDatos}}CO<sub>2</sub>eq</p>
+                            </div>
+                        </fieldset>
+                    <fieldset>
+                            <div class="personal-details">
+                                <p>La huella de carbono de los sectores de la organizacion fue de: {{huellaSectores}} {{magnitudSectores}}CO<sub>2</sub>eq</p>
+                            </div>
+                    </fieldset>
+                    <fieldset>
+                            <div class="personal-details">
+                                <p>La huella de carbono total fue de: {{huellaTotal}} {{magnitudTotal}}CO<sub>2</sub>eq</p>
+                            </div>
+                    </fieldset>
+
+
+                </form>
+    </div>
+
+
+{{/partial}}
+{{> form-layout.html.hbs}}

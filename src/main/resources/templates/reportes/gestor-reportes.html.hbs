@@ -1,0 +1,21 @@
+{{#partial "form-reportes" }}
+    <div class="div-form">
+
+      <fieldset>
+        <legend>
+          <h3>Gestor de reportes</h3>
+        </legend>
+      </fieldset>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_st'" type="button">HC total por sector territorial</button>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_total_tipo_organizacion'" type="button">HC total por tipo de Organización</button>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_composicion_st'" type="button">Composición de HC total de un determinado sector territorial</button>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_composicion_organizacion'" type="button">Composición de HC total de una determinada Organización</button>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_evolucion_st'" type="button">Evolución de HC total de un determinado sector territorial</button>
+      <button class="btn btn-primary btn-lg btn-block" onclick="location.href='/huella_carbono_evolucion_organizacion'" type="button">Evolución de HC total de una determinada Organización</button>
+
+
+    </div>
+
+{{/partial}}
+
+{{> form-reportes-layout.html.hbs}}

@@ -1,0 +1,62 @@
+{{#partial "form" }}
+  <div class="div-form">
+    <form method="POST" action="/aprobar_solicitud">
+      <fieldset>
+        <legend>
+          <h3>Solicitudes pendientes de aprobación</h3>
+        </legend>
+        <div class="personal-details">
+          <label>Selecciona sector*</label>
+          <select name="sector" required>
+            <option value=""></option>
+            {{#each sectores}}
+              <option value="{{id}}">{{nombreSector}}</option>
+            {{/each}}
+          </select>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div>
+            {{#each solicitudes}}
+              <div>
+                <p>Organizacion: {{organizacion.razonSocial}} | Miembro: {{miembro.nombre}} {{miembro.apellido}} </p>
+                <label for="solicitud_{{id}}">Aprobar</label>
+                <input type="checkbox" name="solicitud_{{id}}" id="solicitud_{{id}}" value="{{id}}">
+              </div>
+            {{/each}}
+          </div>
+
+        </div>
+
+      </fieldset>
+      <button type="submit">Aprobar solicitudes</button>
+
+      <fieldset>
+        <legend>
+          <h3>Miembros de la organización</h3>
+        </legend>
+        <div class="personal-details">
+
+        <div>
+          {{#each sectores}}
+            {{#each miembros}}
+            <div>
+              <p>Nombre: {{nombre}} | Apellido: {{apellido}} | Sector: {{nombreSector}} </p>
+            </div>
+            {{/each}}
+          {{/each}}
+        </div>
+      </fieldset>
+
+
+      </form>
+  </div>
+
+
+
+
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}

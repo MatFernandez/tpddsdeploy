@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="/login.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+        <style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        body{
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        height:100vh;
+        font-family: 'Open Sans', sans-serif;
+        background: #90DF53;
+        }
+
+        .form-body{
+        width: 480px;
+        min-width:300px;
+        boder-radius:10px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border: solid 2px #ffff;
+        margin: 10px;
+        }
+
+
+        .form-body img{
+        width:150px;
+        display: block;
+        margin: 20px auto;
+        }
+
+        .text{
+
+        text-align:center;
+        font-size: 30;
+        font-weight: 600;
+        color: #00000;
+        margin-bottom:30px;
+       }
+
+       .form-body input{
+       display: block;
+       margin: auto;
+       height: 40px;
+       width: 75%;
+       padding-left:10px;
+       color: #00000;
+       border-radius:2px;
+       font-family: 'Open Sans', sans-serif;
+       background-color:#fffff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+       font-size: 1.5rem;
+       outline: none;
+        }
+
+
+        .form-body input[type="password"]{
+        margin-top: 20px
+        }
+
+
+        ::placeholder{
+        font-size:2rem;
+        color: #fffff;
+        }
+
+        .form-body input:hover{
+        transition: .3s;
+        border: 1px solid #00000;
+        color: #00000;
+        }
+
+
+        .form-body button{
+        display:block;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        height: 40px;
+        width: 78%;
+        background: #2980b9;
+        color: #b9c4c6;
+        border-radius: 2px;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid #2980b9;
+        transition: all .5s ease;
+        }
+
+
+        .form-body button:hover{
+        color: d5dbdd;
+        border: 2px solid #3498db;
+        background:linear-gradient(#34495e, #2c3e50);
+        }
+
+        .err {
+       display: flex;
+       margin: auto;
+       height: 50px;
+       width: 75%;
+       padding-left:10px;
+       border-radius:2px;
+       background-color:#fffff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+       font-size: 1.5rem;
+       outline: none;
+       justify-content:center;
+        }
+
+
+
+
+
+        </style>
+    </head>
+
+<body>
+<div class="form-body">
+    <img src="https://cdn-icons-png.flaticon.com/512/3047/3047812.png" alt="user-login">
+    <p class="text">Mi impacto ambiental</p>
+    <form action="/login" method="POST">
+    <form class="login-form">
+        <input type="text" name="user" placeholder="Usuario o Email" required="required" />
+        <input type="password" name="pass" placeholder="Contraseña" required="required" />
+        <button name="boton1" type="submit"  class="btn btn-primary btn-block btn-large">Iniciar sesión</button>
+        {{#if error}}
+            <div class="alert alert-danger err" role="alert">
+                {{error}}
+            </div>
+        {{/if}}
+
+    </form>
+    </form>
+</div>
+
+
+</body>
+
+
+</html>

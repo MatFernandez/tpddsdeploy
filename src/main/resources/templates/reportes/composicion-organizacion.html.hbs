@@ -1,0 +1,42 @@
+{{#partial "form-reportes" }}
+  <div class="div-form">
+    <form method=POST action="/huella_carbono_composicion_organizacion">
+      <h1>Reporte</h1>
+      <fieldset>
+        <legend>
+          <h3>Composición de Huella Carbono por Sector de una organización</h3>
+        </legend>
+        <div class="personal-details">
+          <label>Organización*</label>
+          <select name="organizacion" required>
+            <option value=""></option>
+            {{#each organizaciones}}
+              <option value="{{razonSocial}}">{{razonSocial}}</option>
+            {{/each}}
+          </select>
+          <button type="submit">Generar</button>
+        </div>
+      </fieldset>
+    </form>
+    <form>
+      <fieldset>
+        <legend>
+          <h3>Aquí se visualizará la información del reporte</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+
+            {{#each composicion}}
+              <p>Sector: {{@key}} | Huella de carbono: {{this}} </p>
+            {{/each}}
+
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  </div>
+
+{{/partial}}
+
+{{> form-reportes-layout.html.hbs}}

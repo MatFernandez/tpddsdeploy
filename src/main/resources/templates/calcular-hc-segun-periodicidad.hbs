@@ -1,0 +1,41 @@
+{{#partial "form" }}
+    <div class="div-form">
+    <form method=POST action="/mostrarPeriodos">
+        <form>
+            <fieldset>
+                <legend>
+                    <h3>Los datos de actividad del periodo seleccionado fueron:</h3>
+                </legend>
+                <div class="personal-details">
+                    <div>
+                        {{#each datosActividad}}
+                            <p>Tipo consumo: {{tipoConsumo.tipo}} | Valor: {{valor}} | Periocidad: {{periodicidad.name}} |
+                                Periodo imputacion: {{periodoImputacion}}</p>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </fieldset>
+
+        <form>
+            <fieldset>
+                <legend>
+                    <h3>Los factores de emision fueron los siguientes:</h3>
+                </legend>
+                <div class="personal-details">
+                    <div>
+                        {{#each factoresEmisionPorTipoConsumo}}
+                            <p>Factor de emision {{id}} /p>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Calcular Huella de carbono</button>
+
+        </form>
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}

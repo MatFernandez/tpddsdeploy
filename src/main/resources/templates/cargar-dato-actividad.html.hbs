@@ -1,0 +1,70 @@
+{{#partial "form" }}
+    <div class="div-form">
+    <form method=POST action="/cargar_dato_actividad">
+      <h1>Registrá tus datos de actividad</h1>
+      <fieldset>
+        <legend>
+          <h3>Ingresá un nuevo registro de actividad</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+
+            <div>
+              <label for="tipo_consumo">Tipo consumo</label>
+              <input type="text" id="tipo_consumo" name="tipo_consumo"><br><br>
+            </div>
+            <div>
+              <label for="valor">Valor</label>
+              <input type="text" id="valor" name="valor"><br><br>
+            </div>
+            <div>
+              <label for="periocidad">Periocidad</label>
+              <input type="text" id="periocidad" name="periocidad"><br><br>
+            </div>
+            <div>
+              <label for="periodo_imputacion">Periodo de imputacion</label>
+              <input type="text" id="periodo_imputacion" name="periodo_imputacion"><br><br>
+            </div>
+
+            <button type="submit">ENVIAR</button>
+          </div>
+          </div>
+      </fieldset>
+    </form>
+    <form method=POST enctype="multipart/form-data" action="/cargar_csv">
+      <fieldset>
+        <legend>
+          <h3>Carga tu CSV</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+          <label for="fileSelect">CSV File</label>
+          <input id="fileSelect" name="fileSelect" type="file"/>
+          </div>
+          <button type="submit">Cargar CSV</button>
+        </div>
+      </fieldset>
+    </form>
+    <form>
+      <fieldset>
+        <legend>
+          <h3>Aquí veras todos tus datos de actividad cargados</h3>
+        </legend>
+        <div class="personal-details">
+          <div>
+
+            {{#each datosActividad}}
+              <p>Tipo consumo: {{tipoConsumo.tipo}} | Valor: {{valor}} | Periocidad {{periodicidad}} |
+                Periodo imputacion: {{periodoImputacion}}</p>
+            {{/each}}
+
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    </div>
+    </div>
+
+{{/partial}}
+
+{{> form-layout.html.hbs}}
